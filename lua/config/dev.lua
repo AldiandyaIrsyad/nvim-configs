@@ -35,7 +35,7 @@ _G.DevOpen = function()
         vim.api.nvim_win_set_buf(state.docker_win, state.docker_buf)
     else
         vim.api.nvim_set_current_win(state.docker_win)
-        vim.cmd("terminal while true; do echo '[LOGS] Docker-compose up...'; sleep 3; done")
+        vim.cmd("terminal docker compose up")
         state.docker_buf = vim.api.nvim_get_current_buf()
         vim.api.nvim_buf_set_name(state.docker_buf, "Mock_Docker")
         vim.bo[state.docker_buf].bufhidden = "hide"
@@ -55,7 +55,7 @@ _G.DevOpen = function()
         vim.api.nvim_win_set_buf(state.app_win, state.app_buf)
     else
         vim.api.nvim_set_current_win(state.app_win)
-        vim.cmd("terminal while true; do echo '[LOGS] Mise run dev...'; sleep 3; done")
+        vim.cmd("terminal mise run dev")
         state.app_buf = vim.api.nvim_get_current_buf()
         vim.api.nvim_buf_set_name(state.app_buf, "Mock_App")
         vim.bo[state.app_buf].bufhidden = "hide"

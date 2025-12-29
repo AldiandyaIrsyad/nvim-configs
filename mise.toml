@@ -1,0 +1,2 @@
+[tasks]
+dev = { run = "while true; do echo '[LOGS] Mise run dev...'; sleep 3; done", description = "Mocks the application dev server" }
