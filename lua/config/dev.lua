@@ -102,10 +102,3 @@ _G.DevToggle = function()
     end
 end
 
-
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], {
-    desc = "Exit Terminal Mode"
-})
-vim.keymap.set("t", "<A-s>", _G.DevToggle, {
-    desc = "Toggle Dev Logs"
-})
