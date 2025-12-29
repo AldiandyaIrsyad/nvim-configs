@@ -1,0 +1,29 @@
+services:
+  # ---------------------------------------------------------------------------
+  # SERVICE: Backend (Hidden by default)
+  # ---------------------------------------------------------------------------
+  backend:
+    image: alpine:3.21
+    container_name: mock-backend
+    profiles: ["app"]  # <--- Only runs when '--profile app' is used
+    depends_on:
+      - db
+      - redis
+    # Simulates the Go API
+    command: >
+      /bin/sh -c "while true; do echo '[LOGS] 🚀 Backend (Go) connected to DB...'; sleep 3; done"
+
+  # ---------------------------------------------------------------------------
+  # SERVICE: Infrastructure (Default Set)
+  # ---------------------------------------------------------------------------
+  db:
+    image: alpine:3.21
+    container_name: mock-db
+    command: >
+      /bin/sh -c "while true; do echo '[LOGS] 🐘 Database (Postgres) accepting connections...'; sleep 3; done"
+
+  redis:
+    image: alpine:3.21
+    container_name: mock-redis
+    command: >
+      /bin/sh -c "while true; do echo '[LOGS] ⚡ Redis (Cache) ready...'; sleep 3; done"
